@@ -1,0 +1,22 @@
+{
+  "name": "nadira-montaj",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "remotion": "4.0.533",
+    "@remotion/cli": "4.0.533",
+    "@remotion/google-fonts": "4.0.533",
+    "@remotion/media-utils": "4.0.533",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "@types/react": "19.1.0"
+  },
+  "scripts": {
+    "prepare-video": "remotion ffmpeg -y -i public/nadira_Q.A.mov -map 0:v:0 -map 0:a:0 -c:v libx264 -crf 10 -preset slow -pix_fmt yuv420p -af loudnorm=I=-16:TP=-3:LRA=11,aresample=48000 -c:a aac -b:a 320k -write_tmcd 0 -movflags +faststart public/nadira.mp4",
+    "dev": "remotion studio",
+    "render": "remotion render Nadira out/nadira_montaj.mp4"
+  }
+}
